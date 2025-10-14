@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # utfpr_tictactoe
 A variation of the Tic Tac Toe game
 =======
@@ -22,5 +21,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/utfpr_tictactoe>.
-
->>>>>>> bacb30f (Initial commit)
