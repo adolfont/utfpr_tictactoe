@@ -15,4 +15,20 @@ defmodule BoardTest do
     end
   end
 
+  describe "play" do
+    test "play once" do
+      new_board = Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+
+      assert new_board == %Board{
+        cells: [
+        :x, " ", " "," ",
+        " ", " ", " "," ",
+        " ", " ", " "," ",
+        " ", " ", " "," ",
+      ]
+    }
+    end
+  end
+
 end
