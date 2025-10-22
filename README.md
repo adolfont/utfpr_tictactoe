@@ -8,5 +8,13 @@ In this version of Tic-Tac-Toe, we have:
 * a **4×4 board**
 * players can place their symbol **on top of another player’s symbol**
   * However, there is a **no-revenge rule**: if, in the previous move, **X** placed a symbol over **O**, then in **O**’s next turn, they **cannot** place their symbol over **X**.
+ 
+
+
+### Next steps
+
+- Fork the repo
+- Write a test and the code to pass that test
+- Create a pull request
 
 
