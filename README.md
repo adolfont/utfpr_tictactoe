@@ -1,23 +1,10 @@
 # utfpr_tictactoe
 A variation of the Tic Tac Toe game
-=======
-# UtfprTictactoe
 
-**TODO: Add description**
+In this version of the Tic-tac-toe game we have:
+- 3 players, with symbols X, O and +
+- a 4x4 board
+- a player can put a symbol over the symbols of other players
+  - But there is a no-revenge rule. If, in the last  
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `utfpr_tictactoe` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:utfpr_tictactoe, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/utfpr_tictactoe>.
