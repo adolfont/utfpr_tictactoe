@@ -1,10 +1,12 @@
 # utfpr_tictactoe
-A variation of the Tic Tac Toe game
 
-In this version of the Tic-tac-toe game we have:
-- 3 players, with symbols X, O and +
-- a 4x4 board
-- a player can put a symbol over the symbols of other players
-  - But there is a no-revenge rule. If, in the last  play, X put his symbol over O. In the next O play, it cannot put his symbol over X.
+### A Variation of the Tic-Tac-Toe Game
+
+In this version of Tic-Tac-Toe, we have:
+
+* 3 players, using the symbols **X**, **O**, and **+**
+* a **4×4 board**
+* players can place their symbol **on top of another player’s symbol**
+  * However, there is a **no-revenge rule**: if, in the previous move, **X** placed a symbol over **O**, then in **O**’s next turn, they **cannot** place their symbol over **X**.
 
 
