@@ -18,3 +18,15 @@ In this version of Tic-Tac-Toe, we have:
 - Create a pull request
 
 
+
+### Examples
+
+#### Revenge not allowed
+
+- X plays on (1,1)
+- O plays on (1,1)
+- + plays on (1,1)
+- X plays on (1,1)
+- O plays on (1,1)
+- + plays on (2,2)
+  X plays on (1,1) -- not allowed
