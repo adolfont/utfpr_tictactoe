@@ -11,12 +11,12 @@ defmodule BoardTest do
           " ", " ", " ", " ",
           " ", " ", " ", " "
         ],
-        prev_owner: %{}
+        previous_steal: %{}
       }
     end
   end
 
-  describe "play" do
+  describe "basic play" do
     test "play once" do
       new_board =
         Board.new()
@@ -31,7 +31,7 @@ defmodule BoardTest do
     end
   end
 
-  describe "overwrite" do
+  describe "basic overwrite" do
     test "overwrite first player" do
       new_board =
         Board.new()
@@ -45,10 +45,41 @@ defmodule BoardTest do
         " ", " ", " ", " "
       ]
     end
+
+    test "overwrite second player" do
+      new_board =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 2)
+        |> Board.play(Player.new(:+, 3), 2)
+
+      assert new_board.cells == [
+        :x, :+, " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " "
+      ]
+    end
   end
 
-  describe "revenge" do
-    test "player2 cannot overwrite player1 to his previous place" do
+  describe "tests for the revenge rules" do
+    test "player2 overwrites player1 then player3 overwrites player2" do
+      new_board =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 1)
+        |> Board.play(Player.new(:+, 3), 1)
+
+
+      assert new_board.cells == [
+        :+, " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " "
+      ]
+    end
+
+    test "player2 overwrites player1 then player1 cannot overwrite player2 on the same position" do
       new_board =
         Board.new()
         |> Board.play(Player.new(:x, 1), 1)
@@ -58,6 +89,74 @@ defmodule BoardTest do
       result = Board.play(new_board, Player.new(:x, 1), 1)
 
       assert result.cells == new_board.cells
+    end
+
+    test "player2 overwrites player1 then player1 cannot overwrite player2 on another position" do
+      new_board =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 2)
+        |> Board.play(Player.new(:+, 3), 3)
+        |> Board.play(Player.new(:x, 1), 4)
+        |> Board.play(Player.new(:o, 2), 4)
+        |> Board.play(Player.new(:+, 3), 5)
+
+      assert new_board.previous_steal == %{
+        :x => nil,
+        :o => :x,
+        :+ => nil,
+      }
+
+      result = Board.play(new_board, Player.new(:x, 1), 2)
+
+      assert result.cells == new_board.cells
+    end
+
+    test "player2 overwrites 1 then player2 can overwrite player2 after another turn" do
+      new_board =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 1)
+        |> Board.play(Player.new(:+, 3), 2)
+        |> Board.play(Player.new(:x, 1), 3)
+        |> Board.play(Player.new(:o, 2), 4)
+        |> Board.play(Player.new(:+, 3), 5)
+
+      assert new_board.previous_steal == %{
+        :x => nil,
+        :o => nil,
+        :+ => nil
+      }
+
+      result = Board.play(new_board, Player.new(:x, 1), 1)
+
+      assert result.cells == [
+        :x, :+, :x, :o,
+        :+, " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " "
+      ]
+    end
+
+    test "player2 overwrites 1 then player2 then player3 overwrites player2" do
+      new_board =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 1)
+        |> Board.play(Player.new(:+, 3), 1)
+
+      assert new_board.previous_steal == %{
+        :x => nil,
+        :o => :x,
+        :+ => :o
+      }
+
+      assert new_board.cells == [
+        :+, " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " ",
+        " ", " ", " ", " "
+      ]
     end
   end
 end
