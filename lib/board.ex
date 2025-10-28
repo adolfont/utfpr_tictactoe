@@ -84,7 +84,7 @@ defmodule Board do
     end
   end
 
-  def noname(data) do
+  def display_inside_cells(data) do
     data
     |> Enum.map(fn {row, row_num} ->
       row_display =
@@ -101,7 +101,7 @@ defmodule Board do
     cells
     |> Enum.chunk_every(4)
     |> Enum.with_index(1)
-    |> noname()
+    |> display_inside_cells()
   end
 
   def display_board(%Board{cells: cells}) do
