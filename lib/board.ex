@@ -64,7 +64,8 @@ defmodule Board do
             previous_steal:
               previous_steal
               |> Map.put(symbol, current_symbol)
-              |> Map.put(current_symbol, nil)
+            # |> Map.put(current_symbol, nil)
+            # TODO We cannot put nil here. What we have must remain there
         }
     end
   end
