@@ -5,14 +5,26 @@ defmodule BoardTest do
   describe "new/0" do
     test "creates a new empty board" do
       assert Board.new() == %Board{
-        cells: [
-          " ", " ", " ", " ",
-          " ", " ", " ", " ",
-          " ", " ", " ", " ",
-          " ", " ", " ", " "
-        ],
-        previous_steal: %{}
-      }
+               cells: [
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " ",
+                 " "
+               ],
+               previous_steal: %{}
+             }
     end
   end
 
@@ -23,11 +35,23 @@ defmodule BoardTest do
         |> Board.play(Player.new(:x, 1), 1)
 
       assert new_board.cells == [
-        :x, " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " "
-      ]
+               :x,
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " "
+             ]
     end
   end
 
@@ -39,11 +63,23 @@ defmodule BoardTest do
         |> Board.play(Player.new(:o, 2), 1)
 
       assert new_board.cells == [
-        :o, " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " "
-      ]
+               :o,
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " "
+             ]
     end
 
     test "overwrite second player" do
@@ -54,11 +90,23 @@ defmodule BoardTest do
         |> Board.play(Player.new(:+, 3), 2)
 
       assert new_board.cells == [
-        :x, :+, " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " "
-      ]
+               :x,
+               :+,
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " "
+             ]
     end
   end
 
@@ -70,13 +118,24 @@ defmodule BoardTest do
         |> Board.play(Player.new(:o, 2), 1)
         |> Board.play(Player.new(:+, 3), 1)
 
-
       assert new_board.cells == [
-        :+, " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " ",
-        " ", " ", " ", " "
-      ]
+               :+,
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " ",
+               " "
+             ]
     end
 
     test "Victim cannot retaliate against attacker" do
@@ -102,10 +161,10 @@ defmodule BoardTest do
         |> Board.play(Player.new(:+, 3), 5)
 
       assert new_board.previous_steal == %{
-        :x => nil,
-        :o => :x,
-        :+ => nil,
-      }
+               :x => nil,
+               :o => :x,
+               :+ => nil
+             }
 
       result = Board.play(new_board, Player.new(:x, 1), 2)
 
@@ -113,7 +172,8 @@ defmodule BoardTest do
     end
 
     test "Crossposition revenge O steals from X, tries to steal again" do
-      board = Board.new()
+      board =
+        Board.new()
         |> Board.play(Player.new(:x, 1), 1)
         |> Board.play(Player.new(:o, 2), 1)
         |> Board.play(Player.new(:x, 1), 2)
@@ -133,7 +193,8 @@ defmodule BoardTest do
       # O plays on (1,1)   ALLOWED
       # + plays on (2,2)
       # X plays on (1,1)   BLOCKED (X's last steal was from O at step 5)
-      board = Board.new()
+      board =
+        Board.new()
         |> Board.play(Player.new(:x, 1), 1)
         |> Board.play(Player.new(:o, 2), 1)
         |> Board.play(Player.new(:+, 3), 1)
@@ -152,6 +213,43 @@ defmodule BoardTest do
       board = Board.play(board, Player.new(:x, 1), 1)
       assert board.cells == board_step7.cells, "Step 7: X blocked (O just stole from X)"
       assert Enum.at(board.cells, 0) == :o
+    end
+  end
+
+  # REPL DRIVEN DEVELOPMENT
+
+  # IEX IS A REPL
+  # READ
+  # EVAL
+  # PRINT
+  # LOOP
+
+  describe "tests for board display" do
+    test "Correctly displays the board after three moves" do
+      string_containing_board_after_moves =
+        Board.new()
+        |> Board.play(Player.new(:x, 1), 1)
+        |> Board.play(Player.new(:o, 2), 2)
+        |> Board.play(Player.new(:+, 3), 5)
+        |> Board.display_board()
+
+      IO.puts("---------------")
+      IO.puts(string_containing_board_after_moves)
+      IO.puts("---------------")
+
+      assert string_containing_board_after_moves ==
+               """
+                  1   2   3   4
+                ┌───┬───┬───┬───┐
+               1│ x │ o │   │   │
+                ├───┼───┼───┼───┤
+               2│ + │   │   │   │
+                ├───┼───┼───┼───┤
+               3│   │   │   │   │
+                ├───┼───┼───┼───┤
+               4│   │   │   │   │
+                └───┴───┴───┴───┘
+               """
     end
   end
 end
