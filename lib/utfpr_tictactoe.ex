@@ -1,18 +1,22 @@
 defmodule UtfprTictactoe do
-  
-  def start_game() do
-    player1_symbol = IO.gets("Player 1 symbol: ") |> String.trim()
-    player1 = Player.new(player1_symbol, 1)
-    
-    player2_symbol = IO.gets("Player 2 symbol: ") |> String.trim()
-    player2 = Player.new(player2_symbol, 2)
+  def main() do
+    IO.puts("\n=== Welcome to UTFPR Tic-Tac-Toe ===\n")
+    IO.puts("Avaliable symbols: x, o, +\n")
 
-    player3_symbol = IO.gets("Player 3 symbol: ") |> String.trim()
-    player3 = Player.new(player3_symbol, 3)
-
+    players = Player.setup_players()
     board = Board.new()
+
+    IO.puts("\nPlayers:")
+    IO.puts("Player 1: #{players.player1.symbol}")
+    IO.puts("Player 2: #{players.player2.symbol}")
+    IO.puts("Player 3: #{players.player3.symbol}")
+
+    Board.display_board(board)
+
+    game_loop(board, players, 1)
   end
 
+  defp game_loop(_board, _players, _turn) do
+    IO.puts("TODO: IMPLEMENT THE REST")
+  end
 end
-
-UtfprTictactoe.start_game()
