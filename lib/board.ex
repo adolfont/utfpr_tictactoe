@@ -55,4 +55,32 @@ defmodule Board do
         }
     end
   end
+
+  def display_board(%Board{cells: cells}) do
+    IO.puts("\n   1   2   3   4")
+    IO.puts(" ┌───┬───┬───┬───┐")
+
+    cells
+    |> Enum.chunk_every(4)
+    |> Enum.with_index(1)
+    |> Enum.each(fn {row, row_num} ->
+      row_display =
+        row
+        |> Enum.map(fn cell ->
+          case cell do
+            " " -> " "
+            symbol -> Atom.to_string(symbol)
+          end
+        end)
+        |> Enum.join(" │ ")
+
+      IO.puts("#{row_num}│ #{row_display} │")
+
+      if row_num < 4 do
+        IO.puts(" ├───┼───┼───┼───┤")
+      end
+    end)
+
+    IO.puts(" └───┴───┴───┴───┘\n")
+  end
 end

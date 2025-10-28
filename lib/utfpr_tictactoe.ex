@@ -1,18 +1,22 @@
 defmodule UtfprTictactoe do
-  @moduledoc """
-  Documentation for `UtfprTictactoe`.
-  """
+  def main() do
+    IO.puts("\n=== Welcome to UTFPR Tic-Tac-Toe ===\n")
+    IO.puts("Avaliable symbols: x, o, +\n")
 
-  @doc """
-  Hello world.
+    players = Player.setup_players()
+    board = Board.new()
 
-  ## Examples
+    IO.puts("\nPlayers:")
+    IO.puts("Player 1: #{players.player1.symbol}")
+    IO.puts("Player 2: #{players.player2.symbol}")
+    IO.puts("Player 3: #{players.player3.symbol}")
 
-      iex> UtfprTictactoe.hello()
-      :world
+    Board.display_board(board)
 
-  """
-  def hello do
-    :world
+    game_loop(board, players, 1)
+  end
+
+  defp game_loop(_board, _players, _turn) do
+    IO.puts("TODO: IMPLEMENT THE REST")
   end
 end
