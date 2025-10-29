@@ -52,7 +52,9 @@ Position (2,2): O can now overwrite X ✓
 This prevents two players from repeatedly stealing from each other.
 
 ### Revenge Rule Example
-
+<details>
+<summary>How the Cell-revenge rule works</summary>
+  
 1. `X plays on (1,1)`
 
 |   | 1 | 2 | 3 | 4 |
@@ -115,6 +117,8 @@ This prevents two players from repeatedly stealing from each other.
 | 2 |   |   |   |   |
 | 3 |   |   |   |   |
 | 4 |   |   |   |   |
+
+</details>
 
 ### How to Run
 
