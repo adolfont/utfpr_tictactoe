@@ -242,7 +242,7 @@ This prevents two players from repeatedly stealing from each other.
 | 3 | O |   |   |   |
 | 4 |   |   |   |   |
 
-*O's last_steal = nil (played empty, cross-revenge cleared)*
+*O's played empty, cross-revenge cleared*
 
 **Turn 9 - \+ plays (2,2)** - overwrites O
 
