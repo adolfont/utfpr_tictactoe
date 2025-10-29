@@ -121,7 +121,7 @@ defmodule BoardTest do
       #2: O plays on (1,1)
       #3: + plays on (1,1)
       #4: X plays on (1,1)
-      #5: O plays on (1,1)   ALLOWED
+      #5: O plays on (1,1)   BLOCKED, not by cell rule, but by cross rule
       #6: + plays on (2,2)
       #7: X plays on (1,1)   BLOCKED (X's last steal was from O at step 5)
 
