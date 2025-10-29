@@ -9,6 +9,19 @@ In this version of Tic-Tac-Toe, we have:
 * players can place their symbol **on top of another player's symbol**
 * **Two revenge prevention rules** to keep the game fair and prevent stalemates
 
+## Game Example
+
+1. `X plays (1,1)`
+2. `O plays (1,2)`
+3. `+ plays (1,3)`
+4. `X plays (1,4)`
+5. `O plays (1,3)` - **overwrites \+**
+6. `+ plays (1,2)` - **overwrites O**
+7. `X plays (1,2)` - **overwrites \+**
+8. `O plays (2,1)`
+9. `+ plays (1,3)` - **overwrites O**
+10. `X plays (1,3)` - **overwrites \+**
+
 ## Revenge Rules
 
 ### 1. Cell-Based Revenge (Position-Specific)
