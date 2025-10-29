@@ -219,6 +219,7 @@ This prevents two players from repeatedly stealing from each other.
 | 4 |   |   |   |   |
 
 *Cell history at (1,1) changes - cell revenge cleared for X take from O and vice-versa, but not for O retake from \+*
+
 *\+'s last_steal = O*
 
 **Turn 7 - X plays (1,1)** - **ALLOWED** (cell revenge cleared)
