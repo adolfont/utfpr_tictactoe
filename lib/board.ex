@@ -35,7 +35,7 @@ defmodule Board do
 
   def play(
         %Board{cells: cells, previous_steal: previous_steal} = board,
-        %Player{symbol: symbol},
+        %Player{symbol: symbol} = _player,
         position
       ) do
     # off-by-one trap: user-facing positions start at 1, but Elixir list indexes start at 0,
@@ -45,19 +45,30 @@ defmodule Board do
     # pass the position 0-index fix what we had problem in live
     current_symbol = Enum.at(cells, idx)
 
-    my_last_steal = Map.get(previous_steal, symbol)
+    # my_last_steal = Map.get(previous_steal, symbol)
     their_last_steal = Map.get(previous_steal, current_symbol)
 
+    # IO.puts("---")
+    # IO.inspect(board)
+    # IO.inspect(player)
+    # IO.inspect(position)
+    # IO.inspect({"mls", my_last_steal, "tls", their_last_steal})
+    # IO.inspect({"sy", symbol, "csy", current_symbol})
+    # IO.puts("---")
+
     cond do
+      # if the cell is empty
       current_symbol == " " ->
         update_board(board, symbol, idx)
 
+      # if the cell already has the symbol
       current_symbol == symbol ->
-        board
+        update_board(board, symbol, idx)
 
-      my_last_steal == current_symbol ->
-        board
+      # my_last_steal == current_symbol ->
+      #   board
 
+      # if the symbol I want to put is the same symbol???
       their_last_steal == symbol ->
         board
 
@@ -68,7 +79,6 @@ defmodule Board do
             previous_steal:
               previous_steal
               |> Map.put(symbol, current_symbol)
-              |> dbg()
             # |> Map.put(current_symbol, nil)
             # TODO We cannot put nil here. What we have must remain there
         }
