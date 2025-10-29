@@ -41,10 +41,17 @@ mix run -e "UtfprTictactoe.main()"
 
 #### Revenge not allowed
 
-1. X plays on (1,1) — X on empty cell — valid move
-1. O plays on (1,1)  — O overwrites X  — valid move
-1. \+ plays on (1,1)  — \+ overwrites O  — valid move
-1. X plays on (1,1)  — X overwrites \+  — valid move
-1. O plays on (1,1)  — O overwrites X  — valid move
-1. \+ plays on (2,2) — \+ on empty cell — valid move
-1. X plays on (1,1) — invalid move, because X is taking revenge on O (play 5)
+Here’s a cleaned-up and logically clarified version of your sequence. I’ve adjusted the formatting for consistency and refined the final explanation to better reflect the implied rule violation:
+
+---
+
+### Move Sequence
+
+1. **X plays on (1,1)** — X on empty cell — ✅ valid move  
+2. **O plays on (1,1)** — O overwrites X — ✅ valid move  
+3. **+ plays on (1,1)** — + overwrites O — ✅ valid move  
+4. **X plays on (1,1)** — X overwrites + — ✅ valid move  
+5. **O plays on (1,1)** — O overwrites X — ✅ valid move  
+6. **+ plays on (2,2)** — + on empty cell — ✅ valid move  
+7. **X plays on (1,1)** — ❌ invalid move: X is retaliating against O’s overwrite in move 5, violating the anti-revenge rule
+
