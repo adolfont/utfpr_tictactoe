@@ -42,8 +42,8 @@ mix run -e "UtfprTictactoe.main()"
 #### Revenge not allowed
 
 - X plays on (1,1)
-- O plays on (1,1)
-- \+ plays on (1,1)
+- O plays on (1,1) -- overwriting X -- valid move
+- \+ plays on (1,1) -- overwriting \+ -- valid move
 - X plays on (1,1)
 - O plays on (1,1)
 - \+ plays on (2,2)
