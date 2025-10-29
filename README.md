@@ -50,7 +50,7 @@ mix run -e "UtfprTictactoe.main()"
 7. **X plays on (1,1)** — ❌ invalid move: X is retaliating against O’s overwrite in move 5, violating the anti-revenge rule
 
 
-#### Revenge not allowed - example 2
+#### Revenge not allowed - example 2 - revenge on a different position 
 
 1. **X plays on (1,1)** — X on empty cell — ✅ valid move  
 2. **O plays on (1,1)** — O overwrites X — ✅ valid move  
@@ -58,4 +58,4 @@ mix run -e "UtfprTictactoe.main()"
 4. **X plays on (2,2)** — X on empty cell — ✅ valid move  
 5. **O plays on (2,2)** — O overwrites X — ✅ valid move  
 6. **+ plays on (2,2)** — + overwrites O — ✅ valid move  
-
+1. **X plays on (1,1)** — ❌ invalid move: X is retaliating against O’s overwrite in move 5, violating the anti-revenge rule
