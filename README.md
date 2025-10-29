@@ -58,5 +58,4 @@ mix run -e "UtfprTictactoe.main()"
 4. **X plays on (2,2)** — X on empty cell — ✅ valid move  
 5. **O plays on (2,2)** — O overwrites X — ✅ valid move  
 6. **+ plays on (2,2)** — + overwrites O — ✅ valid move  
-7. **X plays on (3,3)** — ❌ invalid move: X is attempting revenge against + for overwriting its earlier move on (2,2)
 
