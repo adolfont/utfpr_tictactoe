@@ -37,21 +37,6 @@ Position (1,1): X tries to overwrite O ← BLOCKED
 
 The block is removed when a third player takes that position.
 
-### 2. Cross-Revenge Prevention (Global)
-
-If player A overwrites player B, then player A cannot overwrite player B again anywhere until player A does something else (plays empty or overwrites a different player).
-
-**Example**:
-```
-Position (1,1): O overwrites X
-Position (2,2): O tries to overwrite X ← BLOCKED
-Position (3,3): O plays empty or overwrites +
-Position (2,2): O can now overwrite X ✓
-```
-
-This prevents two players from repeatedly stealing from each other.
-
-### Revenge Rule Example
 <details>
 <summary>How the Cell-revenge rule works</summary>
   
@@ -119,6 +104,20 @@ This prevents two players from repeatedly stealing from each other.
 | 4 |   |   |   |   |
 
 </details>
+
+### 2. Cross-Revenge Prevention (Global)
+
+If player A overwrites player B, then player A cannot overwrite player B again anywhere until player A does something else (plays empty or overwrites a different player).
+
+**Example**:
+```
+Position (1,1): O overwrites X
+Position (2,2): O tries to overwrite X ← BLOCKED
+Position (3,3): O plays empty or overwrites +
+Position (2,2): O can now overwrite X ✓
+```
+
+This prevents two players from repeatedly stealing from each other.
 
 ### How to Run
 
