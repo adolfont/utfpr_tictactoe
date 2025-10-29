@@ -42,9 +42,9 @@ mix run -e "UtfprTictactoe.main()"
 #### Revenge not allowed
 
 1. X plays on (1,1) — X on empty cell — valid move
-- O plays on (1,1)  — O overwrites X  — valid move
-- \+ plays on (1,1)  — \+ overwrites O  — valid move
-- X plays on (1,1)  — X overwrites \+  — valid move
-- O plays on (1,1)  — O overwrites X  — valid move
-- \+ plays on (2,2) — \+ on empty cell — valid move
-- X plays on (1,1) -- not allowed
+1. O plays on (1,1)  — O overwrites X  — valid move
+1. \+ plays on (1,1)  — \+ overwrites O  — valid move
+1. X plays on (1,1)  — X overwrites \+  — valid move
+1. O plays on (1,1)  — O overwrites X  — valid move
+1. \+ plays on (2,2) — \+ on empty cell — valid move
+1. X plays on (1,1) -- not allowed
