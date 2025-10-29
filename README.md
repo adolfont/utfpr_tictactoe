@@ -39,13 +39,7 @@ mix run -e "UtfprTictactoe.main()"
 
 ### Examples
 
-#### Revenge not allowed
-
-Here’s a cleaned-up and logically clarified version of your sequence. I’ve adjusted the formatting for consistency and refined the final explanation to better reflect the implied rule violation:
-
----
-
-### Move Sequence
+#### Revenge not allowed - example 1
 
 1. **X plays on (1,1)** — X on empty cell — ✅ valid move  
 2. **O plays on (1,1)** — O overwrites X — ✅ valid move  
@@ -54,4 +48,15 @@ Here’s a cleaned-up and logically clarified version of your sequence. I’ve a
 5. **O plays on (1,1)** — O overwrites X — ✅ valid move  
 6. **+ plays on (2,2)** — + on empty cell — ✅ valid move  
 7. **X plays on (1,1)** — ❌ invalid move: X is retaliating against O’s overwrite in move 5, violating the anti-revenge rule
+
+
+#### Revenge not allowed - example 2
+
+1. **X plays on (1,1)** — X on empty cell — ✅ valid move  
+2. **O plays on (1,1)** — O overwrites X — ✅ valid move  
+3. **+ plays on (3,3)** — + on empty cell — ✅ valid move  
+4. **X plays on (2,2)** — X on empty cell — ✅ valid move  
+5. **O plays on (2,2)** — O overwrites X — ✅ valid move  
+6. **+ plays on (2,2)** — + overwrites O — ✅ valid move  
+7. **X plays on (3,3)** — ❌ invalid move: X is attempting revenge against + for overwriting its earlier move on (2,2)
 
