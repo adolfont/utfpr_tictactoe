@@ -9,7 +9,14 @@ In this version of Tic-Tac-Toe, we have:
 * players can place their symbol **on top of another player's symbol**
 * **Two revenge prevention rules** to keep the game fair and prevent stalemates
 
-## Game Example
+## How to Play
+
+1. Each player chooses their symbol (x, o, or +)
+2. Symbols must be different for each player
+3. Players take turns placing symbols on the board
+4. Enter position in format: row,column (e.g., 1,1 or 2,3)
+
+### Game Example
 
 1. `X plays (1,1)`
 2. `O plays (1,2)`
@@ -228,15 +235,10 @@ Or using Mix:
 mix run -e "UtfprTictactoe.main()"
 ```
 
-### How to Play
+## Next Steps
 
-1. Each player chooses their symbol (x, o, or +)
-2. Symbols must be different for each player
-3. Players take turns placing symbols on the board
-4. Enter position in format: row,column (e.g., 1,1 or 2,3)
-
-### Next steps
-
-- Fork the repo
-- Write a test and the code to pass that test
-- Create a pull request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/feature-name`)
+3. Commit your changes (`git commit -m 'Add feature description'`)
+4. Push to the branch (`git push origin feature/feature-name`)
+5. Open a Pull Request
