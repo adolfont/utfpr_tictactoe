@@ -202,7 +202,10 @@ defmodule BoardTest do
 
       # Step 5: O plays (1,1)  ALLOWED
       ## |> dbg()
+      IO.inspect(board)
+
       board = Board.play(board, Player.new(:o, 2), 1)
+      IO.inspect(board)
 
       ## TODO It should return :o, because it is not a revenge
       assert Enum.at(board.cells, 0) == :o, "Step 5: O successfully steals from X"

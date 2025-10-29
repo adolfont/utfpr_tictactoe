@@ -25,6 +25,14 @@ defmodule Board do
     }
   end
 
+  defp update_board(%Board{cells: cells, previous_steal: previous_steal} = board, symbol, idx) do
+    %Board{
+      board
+      | cells: List.replace_at(cells, idx, symbol),
+        previous_steal: Map.put(previous_steal, symbol, nil)
+    }
+  end
+
   def play(
         %Board{cells: cells, previous_steal: previous_steal} = board,
         %Player{symbol: symbol},
@@ -42,11 +50,7 @@ defmodule Board do
 
     cond do
       current_symbol == " " ->
-        %Board{
-          board
-          | cells: List.replace_at(cells, idx, symbol),
-            previous_steal: Map.put(previous_steal, symbol, nil)
-        }
+        update_board(board, symbol, idx)
 
       current_symbol == symbol ->
         board
@@ -64,6 +68,7 @@ defmodule Board do
             previous_steal:
               previous_steal
               |> Map.put(symbol, current_symbol)
+              |> dbg()
             # |> Map.put(current_symbol, nil)
             # TODO We cannot put nil here. What we have must remain there
         }
