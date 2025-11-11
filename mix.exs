@@ -6,9 +6,14 @@ defmodule UtfprTictactoe.MixProject do
       app: :utfpr_tictactoe,
       version: "0.1.0",
       elixir: "~> 1.18",
+      escript: escript(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
+  end
+
+  def escript do
+    [main_module: Game]
   end
 
   # Run "mix help compile.app" to learn about applications.
